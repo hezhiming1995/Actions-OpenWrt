@@ -26,9 +26,10 @@ env:
   CONFIG_FILE: .config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
+  USE_CACHEWRTBUILD: true
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
-  UPLOAD_COWTRANSFER: true
+  UPLOAD_COWTRANSFER: false
   UPLOAD_WETRANSFER: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
@@ -85,6 +86,13 @@ jobs:
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
+    
+    - name: Cache Reuse(缓存加速，7天内对应源码相同机型二次编译有效，每次只保留一个源码的缓存)
+      if: env.USE_CACHEWRTBUILD == 'true'
+      uses: P3TERX/cachewrtbuild@v1
+      with:
+        ccache: 'true'
+        prefix: $GITHUB_WORKSPACE/openwrt
 
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
