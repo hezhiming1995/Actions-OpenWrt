@@ -26,7 +26,7 @@
 # sed -i "/kenzo/d" "feeds.conf.default"
 # sed -i "/small/d" "feeds.conf.default"
 
-echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
+# echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
 
 # ./scripts/feeds update helloworld
 # ./scripts/feeds install -a -f -p helloworld
