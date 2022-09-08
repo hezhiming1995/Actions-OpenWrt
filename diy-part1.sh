@@ -35,5 +35,5 @@ sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
 # sed -i "/helloworld/d" "feeds.conf.default"
 
 # ./scripts/feeds clean
-# ./scripts/feeds update -a
-# ./scripts/feeds install -a
+./scripts/feeds update -a
+./scripts/feeds install -a
