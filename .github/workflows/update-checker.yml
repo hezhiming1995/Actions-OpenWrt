@@ -23,9 +23,12 @@ on:
 jobs:
   check:
     runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
 
+    - name: Get Commit Hash - check out
+      uses: actions/checkout@main
     - name: Get Commit Hash
       id: getHash
       run: |
