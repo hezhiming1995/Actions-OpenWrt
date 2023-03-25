@@ -27,7 +27,7 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: x86_64_1119.config
+  CONFIG_FILE: x86_64_0326.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
 #   USE_CACHEWRTBUILD: true
