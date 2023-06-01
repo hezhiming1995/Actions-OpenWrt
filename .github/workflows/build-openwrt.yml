@@ -40,7 +40,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout
@@ -66,24 +66,7 @@ jobs:
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
-        
-    - name: luci-app-openclash install
-      run: |
-        cd openwrt
-        mkdir package/luci-app-openclash
-        cd package/luci-app-openclash
-        git init
-        git remote add -f origin https://github.com/vernesong/OpenClash.git
-        git config core.sparsecheckout true
-        echo "luci-app-openclash" >> .git/info/sparse-checkout
-        git pull --depth 1 origin master
-        git branch --set-upstream-to=origin/master 
     
-    - name: luci-theme-argonn
-      run: |
-        cd openwrt/package 		
-        git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git luci-theme-argonn
-
     - name: Load custom feeds
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
