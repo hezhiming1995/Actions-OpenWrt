@@ -11,9 +11,9 @@
 name: Build OpenWrt
 
 on:
-  schedule:
+  # schedule:
   # 对应的是 UTC 时间，需要转换，0 代表北京时间8点，每个月1日/15日12点编译一次
-  - cron: 0 19 16 * *
+  # - cron: 0 19 16 * *
   repository_dispatch:
   workflow_dispatch:
     inputs:
